@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth Video</title>
+
+    <!-- запуск на сервере -->
+    <!-- <base href="/interview_client/">
+
+    <script src="socket.io/socket.io.js" defer></script>     -->
+
+    <!--  локальный запуск -->
+    <script src="/socket.io/socket.io.js" defer></script>      
+
+    <script>
+        const CANDIDATE_ID = '<%= candidate_id %>';
+        const CHUNK_TIME = '<%= chunk_time %>';
+    </script>
+
+    <script src="record.js" defer></script>
+</head>
+<body onload="getVideoStream()">
+    <video id="main-video" height="100%" autoplay muted></video>
+</body>
+</html>
