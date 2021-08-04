@@ -29,7 +29,7 @@ function recordVideo (stream) {
 
     mediaRecorder.ondataavailable = function(e) {
         if (e.data && e.data.size > 0) {
-            const filename = CANDIDATE_ID + ' ' + currentTimestamp;
+            const filename = FNAME_PREFIX + ' ' + currentTimestamp;
             socket.emit('recorded-chunk', {
                 filename: filename,
                 chunk: e.data

@@ -15,10 +15,14 @@ const io = require('socket.io')(server) /// локальный запуск
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
+app.get('/', (req, res) => {
+  res.send('WebSocket Video Recorder by 4in4in');
+})
+
 app.get('/record', (req, res) => {
-  const candidate_id = req.query.candidate_id;
+  const fname_prefix = req.query.fname_prefix;
   const chunk_time = req.query.chunk_time;
-  res.render('record', { candidate_id: candidate_id || 'unknown id', chunk_time: chunk_time || 1000 })
+  res.render('record', { fname_prefix: fname_prefix || 'noname', chunk_time: chunk_time || 1000 })
 })
 
 io.on('connection', socket => {
